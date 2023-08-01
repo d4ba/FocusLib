@@ -1048,6 +1048,4 @@ function Library:Window(options)
 
 	return GUI
 end
-
-
 return Library

@@ -153,7 +153,7 @@ function Library:Window(options)
 
 		-- StarterGui.SimplifiedUI.Main.ContentContainer.UICorner
 		GUI["19"] = Instance.new("UICorner", GUI["18"]);
-		local frame = GUI["2"]
+		local frame = GUI["4"]
 
 		local dragToggle = nil
 		local dragSpeed = 0.1
@@ -163,14 +163,14 @@ function Library:Window(options)
 		local function updateInput(input)
 			local delta = input.Position - dragStart
 			local position = UDim2.new(startPos.X.Scale,startPos.X.Offset + delta.X, startPos.Y.Scale, startPos.Y.Offset + delta.Y)
-			game:GetService("TweenService"):Create(frame, TweenInfo.new(dragSpeed), {Position = position}):Play()
+			game:GetService("TweenService"):Create(GUI["2"], TweenInfo.new(dragSpeed), {Position = position}):Play()
 		end
 
 		frame.InputBegan:Connect(function(input)
 			if (input.UserInputType == Enum.UserInputType.MouseButton1 or input.UserInputType == Enum.UserInputType.Touch) then
 				dragToggle = true
 				dragStart = input.Position
-				startPos = frame.Position
+				startPos = GUI["2"].Position
 				input.Changed:Connect(function()
 					if input.UserInputState == Enum.UserInputState.End then
 						dragToggle = false
@@ -712,7 +712,7 @@ function Library:Window(options)
 				Label:_update()
 			end
 			function Label:_update()
-				Label["2b"].Text = options.Name
+				Label["26"].Text = options.Name
 
 				Label["26"].Size = UDim2.new(Label["26"].Size.X.Scale,Label["26"].Size.X.Offset,0,math.huge)
 				Label["26"].Size = UDim2.new(Label["26"].Size.X.Scale,Label["26"].Size.X.Offset,0,Label["26"].TextBounds.Y)
@@ -1048,7 +1048,6 @@ function Library:Window(options)
 
 	return GUI
 end
-
 
 
 return Library

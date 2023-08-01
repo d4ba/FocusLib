@@ -20,7 +20,7 @@ local window = FocusLib:Window{
 ```lua
 local Tab = window:CreateTab({
   Name = "Tab",
-  Icon = "rbxassetid://3926305904" -- you can get images from raw github png links
+  Icon = "rbxassetid://3926305904" -- set to "nil" to make it the default icon
 })
 ```
 

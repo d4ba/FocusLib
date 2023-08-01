@@ -7,5 +7,5 @@
 
 ## starting up the lib
 ```lua
-
+local FocusLib = loadstring()
 ```
